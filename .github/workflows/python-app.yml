@@ -26,4 +26,6 @@ jobs:
    
     - name: get_paper 
       run: |
-         python get_paper.py
+         python3 get_paper.py
+         env:
+           PUSH_KEY: ${{ secrets.PUSH_KEY }}
