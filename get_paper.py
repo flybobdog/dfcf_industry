@@ -51,10 +51,11 @@ if __name__ == "__main__":
     serverJ = os.environ['PUSH_KEY']
     api = "https://sc.ftqq.com/{}.send".format(serverJ)
     publishDate = df[['publishDate','title']].to_dict()['publishDate'][0]
-    content = df[['publishDate','title']].to_dict()['title']
+    content = df[['publishDate','title']].to_dict()['title'].values()
     data = {
-       "date":publishDate,
+       "text":publishDate,
+       "desp":content
+        
        }
-    for k,v in content.items():
-        data[k]=v
+   
     req = requests.post(api,data = data)
