@@ -56,8 +56,8 @@ if __name__ == "__main__":
     for text in content:
         str_text=str_text+';'+text
     data = {
-       "text":publishDate,
-       "desp":text
+       "text":publishDate+'东方财报',
+       "desp":str_text
         
        }
    
