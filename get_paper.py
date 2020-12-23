@@ -52,6 +52,8 @@ if __name__ == "__main__":
     api = "https://sc.ftqq.com/{}.send".format(serverJ)
     publishDate = df[['publishDate','title']].to_dict()['publishDate'][0]
     content = df[['publishDate','title']].to_dict()['title'].values()
+    for text in content:
+        text+='['+text+']'
     data = {
        "text":publishDate,
        "desp":content
