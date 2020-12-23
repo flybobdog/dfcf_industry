@@ -2,6 +2,7 @@ import datetime
 import requests
 import pandas as pd
 import json
+import os
 
 
 
@@ -47,7 +48,7 @@ if __name__ == "__main__":
     df['publishDate']=df['publishDate'].apply(short_date)
     df[['publishDate','title']].head(50)
     
-    serverJ = env.PUSH_KEY
+    serverJ = os.environ['PUSH_KEY']
     api = "https://sc.ftqq.com/{}.send".format(serverJ)
     title = df[['publishDate','title']].to_dict()['publishDate'][0]
     content = df[['publishDate','title']].to_dict()['title']
