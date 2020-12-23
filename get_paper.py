@@ -56,7 +56,7 @@ if __name__ == "__main__":
         text+='['+text+']'
     data = {
        "text":publishDate,
-       "desp":content
+       "desp":text
         
        }
    
