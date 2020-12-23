@@ -51,13 +51,17 @@ if __name__ == "__main__":
     serverJ = os.environ['PUSH_KEY']
     api = "https://sc.ftqq.com/{}.send".format(serverJ)
     publishDate = df[['publishDate','title']].to_dict()['publishDate'][0]
-    content = df[['publishDate','title']].to_dict()['title'].values()
-    str_text=''
-    for text in content:
-        str_text=str_text+';'+text
+#     content = df[['publishDate','title']].to_dict()['title'].values()
+#     str_text=''
+#     for text in content:
+#         str_text=str_text+';'+text
+    db=df[['publishDate','title']].to_dict()
+    content='|publishDate|title|'+'<br>'+'|----|----|'
+    for i in range(len(db['title'])):
+        content=content+'<br>'+'|'+db['publishDate'][i]+'|'+db['title'][i]+'|'
     data = {
        "text":publishDate+'东方财报',
-       "desp":str_text
+       "desp":content
         
        }
    
