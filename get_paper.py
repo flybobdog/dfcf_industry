@@ -46,14 +46,14 @@ def short_date(date):
 if __name__ == "__main__":
     df=get_em_industry()
     df['publishDate']=df['publishDate'].apply(short_date)
-    df[['publishDate','title']].head(50)
+    
     
     serverJ = os.environ['PUSH_KEY']
     api = "https://sc.ftqq.com/{}.send".format(serverJ)
-    title = df[['publishDate','title']].to_dict()['publishDate'][0]
-    content = df[['publishDate','title']].to_dict()['title']
+    publishDate = df[['publishDate','title']].to_dict()['publishDate'][0]
+    content = df[['publishDate','title']].to_dict()['title'][:51]
     data = {
-       "text":title,
-       "desp":content
+       "date":publishDate,
+       "title":content
     }
     req = requests.post(api,data = data)
