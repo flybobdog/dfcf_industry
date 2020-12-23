@@ -26,4 +26,4 @@ jobs:
    
     - name: get_paper
       run: |
-        get_paper
+        python get_paper.py
