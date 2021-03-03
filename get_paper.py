@@ -57,8 +57,10 @@ if __name__ == "__main__":
 #         str_text=str_text+';'+text
     db=df[['publishDate','title']].to_dict()
     content='|publishDate|title|'+'   '+'|----|----|'
+    
     for i in range(len(db['title'])):
         content=content+'   '+'|'+db['publishDate'][i]+'|'+db['title'][i]+'|'
+    content=df[['publishDate','title']].to_html()
     data = {
        "text":publishDate+'东方财报',
        "desp":content
